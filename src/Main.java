@@ -1,7 +1,8 @@
 public class Main {
     public static void main(String[] args) {
 
-        String tipo = "sms";    //conifguracion posible del usuario
+        //Factory
+        String tipo = "sms";
         NotificacionFactory factory = NotificacionFactory.getFactory(tipo);
         Notificacion notificacion = factory.crearNotificacion();
         notificacion.enviar("Prueba de SMS");
@@ -12,5 +13,20 @@ public class Main {
         notificacion.enviar("Prueba de email");
 
 
+        //Composite
+        Component archivo1 = new Archivo("a.txt", 100);
+        Component archivo2 = new Archivo("b.txt", 200);
+        Component archivo3 = new Archivo("c.txt", 300);
+
+        Directorio carpetaDocumentos = new Directorio("documentos");
+        carpetaDocumentos.agregar(archivo1);
+        carpetaDocumentos.agregar(archivo2);
+
+        Directorio carpetaPrincipal = new Directorio("principal");
+        carpetaPrincipal.agregar(carpetaDocumentos);
+        carpetaPrincipal.agregar(archivo3);
+
+        System.out.println("Tamaño documentos: " + carpetaDocumentos.getSize()); // 300
+        System.out.println("Tamaño total: " + carpetaPrincipal.getSize());       // 600
     }
 }
