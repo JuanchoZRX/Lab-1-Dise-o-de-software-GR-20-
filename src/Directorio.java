@@ -14,7 +14,7 @@ public class Directorio implements Component {
         children.add(c);
     }
 
-    public void quitar(Component c) {
+    public void eliminar(Component c) {
         children.remove(c);
     }
 
@@ -27,7 +27,4 @@ public class Directorio implements Component {
         return total;
     }
 
-    public String getName() {
-        return name;
-    }
 }

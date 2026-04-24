@@ -11,8 +11,4 @@ public class Archivo implements Component {
     public int getSize() {
         return size;
     }
-
-    public String getName() {
-        return name;
-    }
 }
