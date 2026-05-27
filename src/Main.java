@@ -28,5 +28,21 @@ public class Main {
 
         System.out.println("Tamaño documentos: " + carpetaDocumentos.getSize()); // 300
         System.out.println("Tamaño total: " + carpetaPrincipal.getSize());       // 600
+
+
+        //Iterator
+        SalaEmergencias sala = new SalaEmergencias();
+
+        sala.agregarPaciente(new Paciente("Ana", "Verde", 1));
+        sala.agregarPaciente(new Paciente("Luis", "Rojo", 2));
+        sala.agregarPaciente(new Paciente("Carlos", "Amarillo", 3));
+        sala.agregarPaciente(new Paciente("Maria", "Rojo", 4));
+        sala.agregarPaciente(new Paciente("Sofia", "Verde", 5));
+
+        IteratorPaciente iterator = sala.crearIterator();
+        System.out.println("\nOrden de atención:");
+        while(iterator.hayPaciente()) {           //recorre con prioridad
+            System.out.println(iterator.siguiente());
+        }
     }
 }
